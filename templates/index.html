@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Quiz</title>
+<title>TQ Induction</title>
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/favicon.ico') }}"">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500&family=Raleway:wght@100;200;300;400;500&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -1272,8 +1273,8 @@
 
 		<form action="{{url_for('result')}}" method="POST">
 			<input type="hidden" type="text" id="modeldata" class="form__input" name='modeldata' />
-			<div class="submit-button">
-			<input type="submit" value="SUBMIT" id=submit onclick="check()">
+		<div class="submit-button">
+			<input type="submit" value="Submit" id="submit" onclick="check()">
 		</div>
 		</form>
 	</div>

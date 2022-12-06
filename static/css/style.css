@@ -8,10 +8,11 @@
 .submit-button{
 	padding-top: 6%;
 	padding-bottom: 2%;
-	BO
 	margin-left: 40%;
 
 }
+
+
 
 :root {
 	--bg: #1e1f26;
@@ -59,11 +60,35 @@ div{
 	display: block;
 }
 body, input {
-	color: var(--fg);
-	font: 1em/1.5 Muli, sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+	font: 1em/1.5;
 }
 body, input, div {
 	color: none;
+	font: 1em/1.5 Muli, sans-serif;
+}
+body {
+	background-color:#1e1f26;
+	height: 100vh;
+}
+body, input1 {
+  font-family: "Josefin Sans", sans-serif;
+	font: 1em/1.5;
+  color: #03dac6;
+}
+.submit-button #submit{
+  font-family: "Share Tech Mono", monospaced;
+  font-size: 35px;
+  font-weight: 400;
+  text-align: center;
+  color: #03dac6;
+  border-radius: 5px;
+  padding: auto;
+  background-color: #000000;
+
+}
+body, input1, div {
+	color: #03dac6;
 	font: 1em/1.5 Muli, sans-serif;
 }
 body {
