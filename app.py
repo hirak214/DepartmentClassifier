@@ -1,4 +1,4 @@
-from urllib.parse import uses_relative
+# from urllib.parse import uses_relative
 from flask import Flask, flash, redirect, render_template, request, Response, url_for
 import sys
 import csv
@@ -6,7 +6,7 @@ import json
 import pickle
 # import sklearn
 import pandas as pd
-from flask_ngrok import run_with_ngrok
+# from flask_ngrok import run_with_ngrok
 
 
 app = Flask(__name__)
@@ -26,10 +26,10 @@ def result():
     if request.method == 'POST':
         output = request.form.to_dict()
         data = list(map(int, output['modeldata'].split(",")))
-        print(data)
-        print(len(data))
+        # print(data)
+        # print(len(data))
         prediction = get_department(data=data)
-        print(f"{prediction= }")
+        # print(f"{prediction= }")
     
 
     return render_template('result.html', department=prediction)
@@ -39,7 +39,7 @@ def get_department(data):
     f = open('my_classifier87.pickle', 'rb')
     classifier = pickle.load(f)
     f.close()
-    print("hello")
+    # print("hello")
     sample = {
     'I can make friends easily': [data[0]],
     'I possess good communication skills': [data[1]],
@@ -70,5 +70,5 @@ def get_department(data):
     return prediction[0].upper()
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    # app.run()
+    # app.run(debug=True)
+    app.run(host="0.0.0.0", debug=False)
