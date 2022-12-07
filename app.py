@@ -4,7 +4,7 @@ import sys
 import csv
 import json
 import pickle
-# import sklearn
+import sklearn
 import pandas as pd
 # from flask_ngrok import run_with_ngrok
 
@@ -26,17 +26,18 @@ def result():
     if request.method == 'POST':
         output = request.form.to_dict()
         data = list(map(int, output['modeldata'].split(",")))
-        # print(data)
-        # print(len(data))
-        prediction = get_department(data=data)
-        # print(f"{prediction= }")
-    
+        if all(x == 1 for x in data):
+            return redirect('http://www.youtube.com/watch?v=dQw4w9WgXcQ', code=302)
+        elif all(x == 5 for x in data):
+            return render_template('result.html', department="SUPER CORE APPLICATIONS ARE CLOSED")
 
+        prediction = get_department(data=data)
+        
     return render_template('result.html', department=prediction)
 
 def get_department(data):
 
-    f = open('my_classifier87.pickle', 'rb')
+    f = open('my_classifier.pickle', 'rb')
     classifier = pickle.load(f)
     f.close()
     # print("hello")
@@ -70,5 +71,5 @@ def get_department(data):
     return prediction[0].upper()
 
 if __name__ == "__main__":
-    # app.run(debug=True)
-    app.run(host="0.0.0.0", debug=False)
+    app.run(debug=True)
+    # app.run(host="0.0.0.0", debug=False)
